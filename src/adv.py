@@ -5,23 +5,26 @@ from item import Item
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
-                     description= "North of you, the cave mount beckons", items =[sword]),
+    'outside':  Room(name="Outside Cave Entrance",
+                     description= "North of you, the cave mount beckons", items =['sword']),
 
-    'foyer':    Room("Foyer",
-    decription = """Dim light filters in from the south. Dusty
-passages run north and east.""" items=[candle]),
+    'foyer':    Room(name="Foyer",
+    description = """Dim light filters in from the south. Dusty
+passages run north and east.""", items=['candle']),
 
-    'overlook': Room("Grand Overlook", description="""A steep cliff appears before you, falling
+    'overlook': Room(name="Grand Overlook", 
+    description="""A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""items=[compass]),
+the distance, but there is no way across the chasm.""",items=['compass']),
 
-    'narrow':   Room("Narrow Passage", description = """The narrow passage bends here from west
-to north. The smell of gold permeates the air.""" items=[water]),
+    'narrow':   Room(name="Narrow Passage", 
+    description = """The narrow passage bends here from west
+to north. The smell of gold permeates the air.""" ,items=['water']),
 
-    'treasure': Room("Treasure Chamber", description= """You've found the long-lost treasure
+    'treasure': Room(name="Treasure Chamber", 
+    description= """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.""" items=[gold])
+earlier adventurers. The only exit is to the south.""" ,items=[' not gold']),
 }
 
 
@@ -45,7 +48,7 @@ sword = Item("sword")
 candle =Item("candle")
 compass = Item("compass")
 water = Item("water")
-gold = Item("gold")
+gold = Item(" not gold")
 # Make a new player object that is currently in the 'outside' room.
 
 # Write a loop that:
@@ -58,8 +61,9 @@ def find_key(value, my_dict):
 # * Prints the current room name
 while True:
 
-print('\n','You are in  {}'.format(player.location), '\n')
+print ('\n','You are in  {}'.format(player.location), '\n')
     room[player.location].get_items()
+    user_input = input('Please enter a direction, n,s,w or e, to exit please enter "quit"): ')
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
@@ -67,8 +71,8 @@ print('\n','You are in  {}'.format(player.location), '\n')
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-user_input = input('Please enter a direction, n,s,w or e, to exit please enter "quit"): ')
-if command == "quit":
+
+if user_input == "quit":
     break
   
   if user_input == 'n':

@@ -17,7 +17,7 @@ class Player:
         return f"<Name: {self.name}, location: {self.location}, inventory: {self.inventory}>"
 
     def pickup_items(*items):
-        print('Player picked up items...')
+        print('Player picked up item...')
         for item in items:
             self.inventory.append(item)
             print(f'{item}') 
