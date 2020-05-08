@@ -10,6 +10,7 @@ def guessing_game():
     
     try:
       guess = int(guess)
+
     except ValueError:
       print("Please enter an integer.")
       continue
